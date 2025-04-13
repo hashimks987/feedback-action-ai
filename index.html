@@ -1,26 +1,894 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>feedback-action-ai</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
-
-    <meta property="og:title" content="feedback-action-ai" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <title>Sigmetic - AI-Powered Review Management</title>
+    <meta name="description" content="Transform customer feedback into actionable insights with Sigmetic, the AI-powered review management platform for traditional businesses." />
+    <meta name="author" content="Sigmetic" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: 'rgb(5, 150, 102)',
+              'primary-dark': 'rgb(4, 120, 82)',
+              'primary-light': 'rgb(6, 180, 122)',
+              dark: '#111827',
+              light: '#F9FAFB',
+            },
+            fontFamily: {
+              'poppins': ['Poppins', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 1s ease-in-out',
+              'slide-up': 'slideUp 0.8s ease-out',
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 3s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(50px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .text-gradient {
+        background: linear-gradient(90deg, rgb(5, 150, 102), rgb(6, 180, 122));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .bg-blur-circle {
+        filter: blur(80px);
+        border-radius: 50%;
+      }
+      .bg-grid {
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      .task-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+    </style>
   </head>
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="font-poppins bg-black text-white overflow-x-hidden">
+    <!-- HEADER SECTION -->
+    <header class="relative z-50">
+      <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <div class="h-10 w-10 bg-primary rounded-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <span class="text-xl font-bold">Sigmetic</span>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#features" class="hover:text-primary transition-colors">Features</a>
+          <a href="#how-it-works" class="hover:text-primary transition-colors">How It Works</a>
+          <a href="#pricing" class="hover:text-primary transition-colors">Pricing</a>
+          <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <a href="#" class="hidden md:inline-block text-sm font-medium px-4 py-2 rounded-full hover:text-primary transition-colors">Login</a>
+          <a href="#" class="text-sm font-medium px-5 py-2.5 bg-primary hover:bg-primary-dark rounded-full transition-colors">Get Started</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center pt-20 pb-40 overflow-hidden bg-grid">
+      <!-- Background decorations -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-40 -left-20 w-72 h-72 bg-primary opacity-20 bg-blur-circle animate-pulse-slow"></div>
+        <div class="absolute bottom-40 -right-10 w-80 h-80 bg-blue-500 opacity-10 bg-blur-circle animate-pulse-slow"></div>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-fade-in">
+            <div class="inline-block px-3 py-1 rounded-full bg-opacity-20 bg-primary text-primary text-sm font-medium mb-6">
+              AI-Powered Review Management
+            </div>
+            <h1 class="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+              Transform Customer <span class="text-gradient">Feedback</span> Into Business Growth
+            </h1>
+            <p class="text-gray-300 text-lg mb-8 max-w-lg">
+              Sigmetic helps traditional businesses collect, analyze, and act on customer reviews without technical complexity.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#" class="px-8 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-full transition-colors flex items-center">
+                Start Free Trial
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+              <a href="#how-it-works" class="px-8 py-3 bg-white bg-opacity-10 hover:bg-opacity-20 text-white font-medium rounded-full transition-colors flex items-center">
+                See How It Works
+              </a>
+            </div>
+          </div>
+
+          <div class="animate-fade-in relative">
+            <img src="https://images.unsplash.com/photo-1560438718-eb61ede255eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sigmetic Dashboard Preview" class="rounded-2xl shadow-2xl w-full max-w-lg mx-auto lg:ml-auto relative z-10">
+            
+            <!-- Decorative elements -->
+            <div class="absolute -top-5 -left-5 w-16 h-16 bg-primary bg-opacity-20 rounded-xl rotate-12 animate-float"></div>
+            <div class="absolute -bottom-4 -right-4 w-24 h-24 border border-primary border-opacity-40 rounded-xl -rotate-12 animate-float" style="animation-delay: 1s;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTS SECTION -->
+    <section class="py-12 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-8">
+          <p class="text-gray-400 text-lg">Trusted by businesses worldwide</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
+          <img src="https://images.unsplash.com/photo-1529268209110-62be1d87fe75?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Client Logo" class="h-8 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+          <img src="https://images.unsplash.com/photo-1564419320461-6870880221ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Client Logo" class="h-8 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+          <img src="https://images.unsplash.com/photo-1607703703520-bb638e84caf2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Client Logo" class="h-8 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+          <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Client Logo" class="h-8 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+          <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Client Logo" class="h-8 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features" class="py-20 relative overflow-hidden">
+      <!-- Background decorations -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-1/4 -right-40 w-96 h-96 bg-primary opacity-10 bg-blur-circle"></div>
+        <div class="absolute bottom-1/3 -left-20 w-80 h-80 bg-blue-500 opacity-5 bg-blur-circle"></div>
+      </div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16 animate-slide-up">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Key Features of Sigmetic</h2>
+          <p class="text-gray-400 text-lg">Our AI-powered platform helps traditional businesses understand customer feedback and transform it into actionable insights.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Feature 1 -->
+          <div class="bg-gray-900 bg-opacity-60 backdrop-blur-lg rounded-2xl p-8 border border-gray-800 hover:border-primary transition-colors">
+            <div class="w-14 h-14 bg-primary bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Customer Review Collection</h3>
+            <p class="text-gray-400 mb-4">Collect reviews using QR code stands placed at your business location. No app download required for customers.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Simple QR code scanning</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Instant feedback submission</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>No technical setup required</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="bg-gray-900 bg-opacity-60 backdrop-blur-lg rounded-2xl p-8 border border-gray-800 hover:border-primary transition-colors">
+            <div class="w-14 h-14 bg-primary bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">AI-Powered Review Analysis</h3>
+            <p class="text-gray-400 mb-4">Our AI engine analyzes customer feedback to identify trends, sentiments, and actionable insights.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Sentiment classification</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Pattern recognition</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Topic clustering</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="bg-gray-900 bg-opacity-60 backdrop-blur-lg rounded-2xl p-8 border border-gray-800 hover:border-primary transition-colors">
+            <div class="w-14 h-14 bg-primary bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Actionable Business Insights</h3>
+            <p class="text-gray-400 mb-4">Turn customer feedback into concrete actions to improve your business performance.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Issue prediction</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Quick-win suggestions</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Root cause analysis</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="bg-gray-900 bg-opacity-60 backdrop-blur-lg rounded-2xl p-8 border border-gray-800 hover:border-primary transition-colors">
+            <div class="w-14 h-14 bg-primary bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Tasks & Actions Management</h3>
+            <p class="text-gray-400 mb-4">AI-generated task lists to help you prioritize and implement improvements systematically.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Priority-based organization</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Task assignments</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Progress tracking</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="bg-gray-900 bg-opacity-60 backdrop-blur-lg rounded-2xl p-8 border border-gray-800 hover:border-primary transition-colors">
+            <div class="w-14 h-14 bg-primary bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Reputation Management</h3>
+            <p class="text-gray-400 mb-4">Respond to customer reviews directly through our platform and track customer engagement.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Direct response system</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Engagement tracking</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Customer retention monitoring</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="bg-gray-900 bg-opacity-60 backdrop-blur-lg rounded-2xl p-8 border border-gray-800 hover:border-primary transition-colors">
+            <div class="w-14 h-14 bg-primary bg-opacity-20 rounded-xl flex items-center justify-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Performance Metrics</h3>
+            <p class="text-gray-400 mb-4">Track and measure your business performance with comprehensive KPIs and visualizations.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Customer satisfaction scoring</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Review volume tracking</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Response time analysis</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section id="how-it-works" class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">How Sigmetic Works</h2>
+          <p class="text-gray-400 text-lg">A simple yet powerful process that transforms customer feedback into actionable insights for your business.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="order-2 lg:order-1">
+            <div class="space-y-8">
+              <!-- Step 1 -->
+              <div class="flex">
+                <div class="flex-shrink-0 mr-6">
+                  <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-xl font-bold">1</div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">Set Up Your QR Code Stand</h3>
+                  <p class="text-gray-400">Place the QR code stand at your business location where customers can easily scan it after their experience.</p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="flex">
+                <div class="flex-shrink-0 mr-6">
+                  <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-xl font-bold">2</div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">Collect Customer Reviews</h3>
+                  <p class="text-gray-400">Customers scan the QR code and submit their feedback instantly through a simple interface.</p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="flex">
+                <div class="flex-shrink-0 mr-6">
+                  <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-xl font-bold">3</div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">AI Analysis & Insights</h3>
+                  <p class="text-gray-400">Our AI analyzes the feedback, identifies patterns, and generates actionable insights for your business.</p>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="flex">
+                <div class="flex-shrink-0 mr-6">
+                  <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-xl font-bold">4</div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">Implement & Improve</h3>
+                  <p class="text-gray-400">Use the AI-generated task list to prioritize improvements and track your progress over time.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2 relative">
+            <img src="https://images.unsplash.com/photo-1563986768711-b3bde3dc821e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sigmetic Dashboard" class="rounded-2xl shadow-2xl">
+            
+            <!-- Decorative elements -->
+            <div class="absolute -top-6 -right-6 w-32 h-32 border border-primary border-opacity-30 rounded-xl rotate-12"></div>
+            <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary bg-opacity-10 rounded-xl -rotate-12"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TASK MANAGEMENT PREVIEW -->
+    <section class="py-20 relative overflow-hidden">
+      <!-- Background decorations -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute bottom-1/4 -left-40 w-96 h-96 bg-primary opacity-10 bg-blur-circle"></div>
+      </div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Turn Feedback Into Action</h2>
+          <p class="text-gray-400 text-lg">Our AI generates prioritized tasks based on customer feedback, helping you focus on what matters most.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Task 1 -->
+          <div class="bg-gray-900 bg-opacity-60 backdrop-blur-lg rounded-2xl p-6 border border-primary border-opacity-30 transition-all duration-300 ease-in-out task-card">
+            <div class="flex items-center mb-4">
+              <span class="px-3 py-1 bg-red-900 bg-opacity-30 text-red-400 rounded-full text-xs font-medium">Urgent</span>
+              <div class="ml-auto flex space-x-2">
+                <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+                <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+                <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Fix Slow Service at Peak Hours</h3>
+            <p class="text-gray-400 text-sm mb-4">Multiple customers have complained about waiting times during lunch rush. Consider adding temporary staff.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-xs text-gray-500">Created 2 days ago</span>
+              <span class="text-xs font-medium text-primary">4 related reviews</span>
+            </div>
+          </div>
+
+          <!-- Task 2 -->
+          <div class="bg-gray-900 bg-opacity-60 backdrop-blur-lg rounded-2xl p-6 border border-yellow-600 border-opacity-30 transition-all duration-300 ease-in-out task-card">
+            <div class="flex items-center mb-4">
+              <span class="px-3 py-1 bg-yellow-900 bg-opacity-30 text-yellow-400 rounded-full text-xs font-medium">In Progress</span>
+              <div class="ml-auto flex space-x-2">
+                <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Improve Vegetarian Menu Options</h3>
+            <p class="text-gray-400 text-sm mb-4">Customers are requesting more vegetarian dishes. Chef is currently testing 3 new options for the menu.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-xs text-gray-500">Created 1 week ago</span>
+              <span class="text-xs font-medium text-primary">7 related reviews</span>
+            </div>
+          </div>
+
+          <!-- Task 3 -->
+          <div class="bg-gray-900 bg-opacity-60 backdrop-blur-lg rounded-2xl p-6 border border-gray-700 border-opacity-30 transition-all duration-300 ease-in-out task-card">
+            <div class="flex items-center mb-4">
+              <span class="px-3 py-1 bg-primary bg-opacity-30 text-primary rounded-full text-xs font-medium">Completed</span>
+              <div class="ml-auto flex space-x-2">
+                <span class="w-2 h-2 bg-primary rounded-full"></span>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold mb-2">Update Bathroom Facilities</h3>
+            <p class="text-gray-400 text-sm mb-4">Renovations completed on all restrooms. Customers have already noted the improvement in recent reviews.</p>
+            <div class="flex justify-between items-center">
+              <span class="text-xs text-gray-500">Completed 3 days ago</span>
+              <span class="text-xs font-medium text-primary">3 positive reviews</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#" class="inline-flex items-center text-primary hover:text-primary-light font-medium">
+            See more task examples
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">What Our Customers Say</h2>
+          <p class="text-gray-400 text-lg">Businesses across various industries are growing with Sigmetic's AI-powered review management.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-gray-800 rounded-2xl p-8">
+            <div class="flex items-center mb-6">
+              <div class="flex text-yellow-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+            </div>
+            <blockquote class="text-gray-300 mb-6">"Sigmetic has completely transformed how we handle customer feedback. The AI-generated tasks help us focus on what truly matters to our customers. Our satisfaction scores have improved by 27% in just three months."</blockquote>
+            <div class="flex items-center">
+              <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80" alt="Restaurant Owner" class="h-12 w-12 rounded-full mr-4">
+              <div>
+                <p class="font-medium">Sarah Johnson</p>
+                <p class="text-sm text-gray-400">Cafe Deluxe, Owner</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-gray-800 rounded-2xl p-8">
+            <div class="flex items-center mb-6">
+              <div class="flex text-yellow-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+            </div>
+            <blockquote class="text-gray-300 mb-6">"The QR code stand has increased our review collection rate by 5x. Now we have real data to make decisions instead of guessing what our customers want. Sigmetic's insights have directly contributed to our 15% revenue growth."</blockquote>
+            <div class="flex items-center">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80" alt="Spa Owner" class="h-12 w-12 rounded-full mr-4">
+              <div>
+                <p class="font-medium">Michael Chen</p>
+                <p class="text-sm text-gray-400">Serenity Spa, Manager</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-gray-800 rounded-2xl p-8">
+            <div class="flex items-center mb-6">
+              <div class="flex text-yellow-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+            </div>
+            <blockquote class="text-gray-300 mb-6">"As a small retail shop, we never had the resources for complex analytics. Sigmetic makes it easy to understand what our customers think and gives us clear steps to improve. The ROI has been incredible for our business."</blockquote>
+            <div class="flex items-center">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80" alt="Boutique Owner" class="h-12 w-12 rounded-full mr-4">
+              <div>
+                <p class="font-medium">Priya Patel</p>
+                <p class="text-sm text-gray-400">Urban Boutique, Owner</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="py-20 relative">
+      <!-- Background decorations -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-40 -right-40 w-96 h-96 bg-primary opacity-5 bg-blur-circle"></div>
+      </div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Simple, Transparent Pricing</h2>
+          <p class="text-gray-400 text-lg">Choose the plan that works for your business needs with no hidden fees.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Free Trial -->
+          <div class="bg-gray-900 bg-opacity-60 backdrop-blur-lg rounded-2xl p-8 border border-gray-800 hover:border-primary transition-colors">
+            <div class="text-center mb-6">
+              <h3 class="text-xl font-semibold mb-2">Free Trial</h3>
+              <div class="flex justify-center items-baseline mb-4">
+                <span class="text-5xl font-bold">3</span>
+                <span class="text-xl text-gray-400 ml-1">Days</span>
+              </div>
+              <p class="text-gray-400">Experience all features without commitment</p>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>All AI analysis features</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Task management system</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Full dashboard access</span>
+              </li>
+              <li class="flex items-start text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+                <span>No QR code stand included</span>
+              </li>
+            </ul>
+            <div class="text-center">
+              <a href="#" class="inline-block w-full px-6 py-3 bg-white bg-opacity-10 hover:bg-opacity-20 font-medium rounded-full transition-colors">Start Free Trial</a>
+            </div>
+          </div>
+
+          <!-- Pro Plan -->
+          <div class="bg-gray-900 bg-opacity-60 backdrop-blur-lg rounded-2xl p-8 border-2 border-primary relative">
+            <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-sm font-medium rounded-bl-lg rounded-tr-lg">MOST POPULAR</div>
+            <div class="text-center mb-6">
+              <h3 class="text-xl font-semibold mb-2">Pro Plan</h3>
+              <div class="flex justify-center items-baseline mb-4">
+                <span class="text-5xl font-bold">₹8,000</span>
+                <span class="text-xl text-gray-400 ml-1">/year</span>
+              </div>
+              <p class="text-gray-400">Everything you need for business growth</p>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>All AI analysis features</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Task management system</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Full dashboard access</span>
+              </li>
+              <li class="flex items-start font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>QR code stand included</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>1500 review submissions monthly</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Priority customer support</span>
+              </li>
+            </ul>
+            <div class="text-center">
+              <a href="#" class="inline-block w-full px-6 py-3 bg-primary hover:bg-primary-dark font-medium rounded-full transition-colors">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="py-20 bg-gradient-to-r from-gray-900 to-black">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Customer Feedback?</h2>
+          <p class="text-xl text-gray-300 mb-8">Join thousands of businesses using Sigmetic to grow with AI-powered review management.</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="#" class="px-8 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-full transition-colors flex items-center">
+              Start Free Trial
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#" class="px-8 py-3 bg-white bg-opacity-10 hover:bg-opacity-20 text-white font-medium rounded-full transition-colors flex items-center">
+              Contact Sales
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-gray-400 pt-16 pb-8">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <!-- Column 1 -->
+          <div>
+            <div class="flex items-center space-x-2 mb-6">
+              <div class="h-10 w-10 bg-primary rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <span class="text-xl font-bold text-white">Sigmetic</span>
+            </div>
+            <p class="mb-6">AI-powered review management for traditional businesses. Transform customer feedback into actionable insights.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div>
+            <h4 class="text-white text-lg font-medium mb-6">Features</h4>
+            <ul class="space-y-3">
+              <li><a href="#" class="hover:text-primary transition-colors">Review Collection</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">AI Analysis</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Task Management</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Reputation Management</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Performance Metrics</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div>
+            <h4 class="text-white text-lg font-medium mb-6">Resources</h4>
+            <ul class="space-y-3">
+              <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Case Studies</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Help Center</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Documentation</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Webinars</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4 -->
+          <div>
+            <h4 class="text-white text-lg font-medium mb-6">Contact</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>+91 98765 43210</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span>contact@sigmetic.com</span>
+              </li>
+              <li class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>123 Tech Park, Bengaluru<br>Karnataka, India 560001</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+          <p>&copy; 2023 Sigmetic. All rights reserved.</p>
+          <div class="mt-4 md:mt-0">
+            <div class="flex space-x-6">
+              <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+              <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+              <a href="#" class="hover:text-primary transition-colors">Cookies</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="fixed bottom-8 right-8 bg-primary hover:bg-primary-dark w-12 h-12 rounded-full flex items-center justify-center transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </a>
+
+    <!-- Simple animation script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Animate elements when they come into view
+        const animateElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        animateElements.forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(20px)';
+          el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+          observer.observe(el);
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            document.querySelector(targetId).scrollIntoView({
+              behavior: 'smooth'
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>
