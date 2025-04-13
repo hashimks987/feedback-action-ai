@@ -1,4 +1,28 @@
+
 import React from 'react';
+import { 
+  Check, 
+  X, 
+  Award,
+  Users,
+  BarChart,
+  QrCode,
+  Brain,
+  Lightbulb,
+  ClipboardList,
+  MessageSquare,
+  BarChart3,
+  Restaurant,
+  Scissors,
+  Store,
+  Wrench,
+  Hotel,
+  Code,
+  Globe,
+  Building,
+  ClipboardSignature,
+  ShoppingCart
+} from 'lucide-react';
 
 const Index = () => {
   return (
